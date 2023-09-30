@@ -13,7 +13,7 @@ CORS(app)
 load_dotenv()
 
 # Access environment variables using the os module
-api_token = os.getenv("HF_HOME")
+api_token = os.getenv("HF_HOME") #create a .env file and add your HF token
 
 # Now you can use these variables in your code
 print(f"API Key: {api_token}")
