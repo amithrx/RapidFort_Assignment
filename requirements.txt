@@ -1,0 +1,5 @@
+pip install transformers
+pip install huggingface_hub
+pip install accelerate
+pip install python-dotenv
+pip install streamlit
