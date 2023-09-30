@@ -40,14 +40,19 @@ def upload():
         sequences = text_generation_pipeline(data['text'],
                                              do_sample=True,
                                              top_k=10,
+                                             top_p=data['top_p'],
                                              num_return_sequences=1,
                                              eos_token_id=tokenizer.eos_token_id,
-                                             max_length=256)
+                                             max_length=data['max_length'],
+                                             temperature=data['temperature'],)
         
         response = sequences[0]['generated_text']
-        response = "Hello World"
+        # Check if s starts with p
+        if response.startswith(data['text']):
+            response = response[len(data['text']):].strip()  # remove prefix
         return jsonify({"response": response})
     except Exception as e:
+        # return jsonify({"error": "As an AI language model, I am abide to the code of conduct and won't give you the answer."})
         return jsonify({"error": str(e)})
 
 if __name__ == '__main__':

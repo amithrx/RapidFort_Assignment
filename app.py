@@ -38,6 +38,7 @@ st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 def generate_llama2_response(prompt_input):
     # string_dialogue = "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature. If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
     # Prepare the user input for the backend
+    prompt_input = prompt_input + " Give answer by quoting examples from Bhagawad Gita."
     data = {"text": prompt_input,"temperature": temperature,"top_p": top_p,"max_length": max_length}
     try:
         # Send a POST request to the backend
