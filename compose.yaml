@@ -12,7 +12,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      environment:
+    environment:
         - HF_HOME=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
     ports:
       - "5000:80"
