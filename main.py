@@ -2,28 +2,29 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import torch
-# from dotenv import load_dotenv
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer
 from transformers import pipeline
 
 app = Flask("Name")
 CORS(app)
 
+# # Get the API token from the environment variables
 api_token = os.environ.get("HF_HOME")
 
-# # Now you can use these variables in your code
 print(f"API Key: {api_token}")
 
-
+# Load the model and tokenizer
+model = "meta-llama/Llama-2-7b-chat-hf"
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf",token=api_token)
 # model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf",
 #                                              device_map='auto',
 #                                              torch_dtype=torch.float16,
 #                                              token=api_token,
 #                                              )
-model = "meta-llama/Llama-2-7b-chat-hf"
+
 # Create a text generation pipeline
 text_generation_pipeline = pipeline("text-generation", device_map='auto', torch_dtype=torch.float16, model=model, token=api_token)
+
 print("Listening on port 5000...")
 cnt = 0
 @app.route('/', methods=['GET'])

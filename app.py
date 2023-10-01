@@ -3,13 +3,13 @@ import requests
 
 # App title
 st.set_page_config(page_title="🦚🛐💬 GitaGPT 2.0")
+
 # Define the URL of the backend API
 backend_url = "http://127.0.0.1:5000/getResponse"
-# Replicate Credentials
+
 with st.sidebar:
     st.title('🦚🛐💬 GitaGPT 2.0')
 
-    # Refactored from https://github.com/a16z-infra/llama2-chatbot
     st.subheader('Models and parameters')
     selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-7B'], key='selected_model')
     
@@ -28,13 +28,13 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
+# Clear chat messages
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
 st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
 # Function for generating LLaMA2 response
 def generate_llama2_response(prompt_input):
-    # string_dialogue = "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature. If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
     # Prepare the user input for the backend
     prompt_input = prompt_input + " Give answer by quoting examples from Bhagawad Gita."
     data = {"text": prompt_input,"temperature": temperature,"top_p": top_p,"max_length": max_length}
