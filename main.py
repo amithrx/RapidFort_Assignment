@@ -11,7 +11,7 @@ CORS(app)
 
 api_token = os.environ.get("HF_HOME")
 
-# Now you can use these variables in your code
+# # Now you can use these variables in your code
 print(f"API Key: {api_token}")
 
 
@@ -25,7 +25,7 @@ model = "meta-llama/Llama-2-7b-chat-hf"
 # Create a text generation pipeline
 text_generation_pipeline = pipeline("text-generation", device_map='auto', torch_dtype=torch.float16, model=model, token=api_token)
 print("Listening on port 5000...")
-
+cnt = 0
 @app.route('/', methods=['GET'])
 def home():
     return "Hello World"
@@ -46,10 +46,11 @@ def upload():
                                              temperature=data['temperature'],)
         
         response = sequences[0]['generated_text']
-        # Check if s starts with p
+        # Check if s starts with prefix
         if response.startswith(data['text']):
             response = response[len(data['text']):].strip()  # remove prefix
         return jsonify({"response": response})
+        
     except Exception as e:
         # return jsonify({"error": "As an AI language model, I am abide to the code of conduct and won't give you the answer."})
         return jsonify({"error": str(e)})

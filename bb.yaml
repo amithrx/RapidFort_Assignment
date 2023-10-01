@@ -24,7 +24,7 @@ metadata:
   name: rapidfort_assesment-service
 spec:
   selector:
-    app: rapidfort_assesment
+    app: fileupload-app
   ports:
     - protocol: TCP
       port: 80

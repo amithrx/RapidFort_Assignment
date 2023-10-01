@@ -41,7 +41,6 @@ def generate_llama2_response(prompt_input):
     try:
         # Send a POST request to the backend
         response = requests.post(backend_url, json=data)
-
         if response.status_code == 200:
             generated_response = response.json()["response"]
             return generated_response
