@@ -1,6 +1,6 @@
 # GitaGPT2: Unleashing the Wisdom of Krishna
 ## About
-This is a GPT2 based chatbot trained on Bhagavad Gita which help user's to get answers to their questions from the wisdom of Krishna. 
+This is a Llama2 based chatbot trained on Bhagavad Gita which help user's to get answers to their questions from the wisdom of Krishna. 
 ## Available on: https://gitagpt2.streamlit.app/
 
 ![Screenshot 2023-10-01 194323](https://github.com/amithrx/RapidFort_Assignment/assets/92815147/b9541a6e-7317-430b-aa7d-3c656d8a7ab9)
@@ -52,12 +52,12 @@ To run the backened server built using flask, follow the steps below:
 ```docker rmi <image_id>```
 
 ### Kubernetes Cluster
-The backend server is hosted on kubernetes cluster using the following command:  
+The backend server is hosted on kubernetes cluster using the following command:
 ```kubectl apply -f bb.yaml```  
 The server is exposed using the load balancer service and created 3 replicas of the pod.  
-Make sure everything worked by listing all deployements using the following command:  
+Make sure everything worked by listing all deployements using the following command:
 ```kubectl get deployments```  
-Once used you can tear down the deployments using the following command:  
+Once used you can tear down the deployments using the following command:
 ```kubectl delete -f bb.yaml```
 
 ### API Documentation

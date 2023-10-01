@@ -18,3 +18,4 @@ echo "New Docker container started."
 
 # # chmod +x run_container.sh => gives the necessary permissions (+x => add execute permission)
 # # needed to run the script
+
