@@ -3,7 +3,7 @@
 This is a GPT2 based chatbot trained on Bhagavad Gita which help user's to get answers to their questions from the wisdom of Krishna. 
 ## Available on: https://gitagpt2.streamlit.app/
 
-![Image]()
+![Screenshot 2023-10-01 194323](https://github.com/amithrx/RapidFort_Assignment/assets/92815147/b9541a6e-7317-430b-aa7d-3c656d8a7ab9)
 
 ### Folder Structure
 The workspace contains the following folders/files:
