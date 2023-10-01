@@ -1,6 +1,6 @@
 # GitaGPT2: Unleashing the Wisdom of Krishna
 ## About
-This is a Llama2 based chatbot trained on Bhagavad Gita which help user's to get answers to their questions from the wisdom of Krishna. 
+This is an AI chatbot that offers spiritual guidance using the teachings of the Bhagavad Gita. Our chatbot uses Llama2 model to understand and answer users' questions, providing insights and advice based on the ancient Hindu scripture. This repository includes all the code and documentation necessary to build and deploy the Gita GPT chatbot.
 ## Available on: https://gitagpt2.streamlit.app/
 
 ![Screenshot 2023-10-01 194323](https://github.com/amithrx/RapidFort_Assignment/assets/92815147/b9541a6e-7317-430b-aa7d-3c656d8a7ab9)
