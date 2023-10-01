@@ -3,7 +3,7 @@
 This is an AI chatbot that offers spiritual guidance using the teachings of the Bhagavad Gita. Our chatbot uses Llama2 model to understand and answer users' questions, providing insights and advice based on the ancient Hindu scripture. This repository includes all the code and documentation necessary to build and deploy the Gita GPT chatbot.
 ## Available on: https://gitagpt2.streamlit.app/
 
-![Screenshot 2023-10-01 194323](https://github.com/amithrx/RapidFort_Assignment/assets/92815147/b9541a6e-7317-430b-aa7d-3c656d8a7ab9)
+![Screenshot 2023-10-01 194323](https://github.com/amithrx/RapidFort_Assignment/assets/92815147/e7c728b2-d5c4-4795-adb7-c6d848f5b0b7)
 
 ### Folder Structure
 The workspace contains the following folders/files:  
