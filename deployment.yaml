@@ -14,7 +14,7 @@ spec:
     spec:
        containers:
         - name: rapidfort_assesment
-          image: docker.io/1amithrx/containerizedapps:latest
+          image: docker.io/1amithrx/chatbot:latest
           ports:
             - containerPort: 80
           resources:
