@@ -1,6 +1,4 @@
-import time
 import streamlit as st
-import os
 import requests
 
 # App title

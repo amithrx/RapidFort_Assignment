@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import torch
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from transformers import pipeline
 
@@ -10,10 +10,11 @@ app = Flask("Name")
 CORS(app)
 
 # Load environment variables from .env file into the script's environment
-load_dotenv()
+# load_dotenv()
 
 # Access environment variables using the os module
-api_token = os.getenv("HF_HOME") #create a .env file and add your HF token
+# api_token = os.getenv("HF_HOME") #create a .env file and add your HF token
+api_token = os.environ.get("HF_HOME")
 
 # Now you can use these variables in your code
 print(f"API Key: {api_token}")
@@ -28,6 +29,11 @@ model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf",
 
 
 print("Listening on port 5000...")
+
+@app.route('/', methods=['GET'])
+def home():
+    return "Hello World"
+
 @app.route('/getResponse', methods=['POST'])
 def upload():
     try:
