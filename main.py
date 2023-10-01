@@ -26,17 +26,21 @@ tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf",token=
 text_generation_pipeline = pipeline("text-generation", device_map='auto', torch_dtype=torch.float16, model=model, token=api_token)
 
 print("Listening on port 5000...")
-cnt = 0
+
+# Define a route
+# test route to make sure everything is working (accessed at GET http://localhost:5000/)
 @app.route('/', methods=['GET'])
 def home():
     return "Hello World"
 
+# getResponse route to get the response from the model (accessed at POST http://localhost:5000/getResponse)
 @app.route('/getResponse', methods=['POST'])
 def upload():
     try:
         data = request.get_json()
         print(data)
 
+        # generating responses using the model
         sequences = text_generation_pipeline(data['text'],
                                              do_sample=True,
                                              top_k=10,
@@ -47,7 +51,7 @@ def upload():
                                              temperature=data['temperature'],)
         
         response = sequences[0]['generated_text']
-        # Check if s starts with prefix
+        # Check if sequences starts with prefix
         if response.startswith(data['text']):
             response = response[len(data['text']):].strip()  # remove prefix
         return jsonify({"response": response})
@@ -57,4 +61,4 @@ def upload():
         return jsonify({"error": str(e)})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5000)
